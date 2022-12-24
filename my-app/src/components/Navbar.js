@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
 
 export default function Navbar(props) {
@@ -15,16 +16,22 @@ export default function Navbar(props) {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page"  href="/">Home</a>
+                            <Link to="/home" className="nav-link active">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/about">{props.aboutText}</a>
+                            <Link to="/about" className="nav-link" >{props.aboutText}</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/register">{props.registerText}</a>
+                            <Link to="/register" className="nav-link" >{props.registerText}</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/validation">validation</a>
+                            <Link to="/validation" className="nav-link">{props.validationText}</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/fetchAPI" className="nav-link">FetchAPI</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/login" className="nav-link">Login</Link>
                         </li>
                     </ul>
                     {/* <div className="d-flex">
@@ -43,14 +50,17 @@ export default function Navbar(props) {
     )
 }
 
+
 Navbar.propTypes = {
     title: PropTypes.string.isRequired,
     aboutText: PropTypes.string,
-    registerText:PropTypes.string
+    registerText:PropTypes.string,
+    validationText: PropTypes.string
 }
 
 Navbar.defaultProps = {
     title: "set title here",
     aboutText: "set aboutText here",
-    registerText:"set registerText here"
+    registerText:"set registerText here",
+    validationText: "set validationText here"
 }

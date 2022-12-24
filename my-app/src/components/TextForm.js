@@ -49,5 +49,5 @@ export default function TextForm(props) {
                 <p>{text.split(" ").length} word and {text.length} characters.</p>
             </div>
         </>
-    )
+    )   
 }
