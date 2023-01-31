@@ -3,10 +3,9 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import PropTypes from "prop-types";
 
-export default function Register({btnName}) {
-  
+export default function Register({ btnName }) {
   const initialValues = {
-    fullName: "", 
+    fullName: "",
     email: "",
     phone: "",
   };
@@ -30,9 +29,6 @@ export default function Register({btnName}) {
     onSubmit,
     validationSchema,
   });
-
-  // console.log(formik.values);
-
   return (
     <>
       <div className="container w-75 my-3">
@@ -41,9 +37,9 @@ export default function Register({btnName}) {
             <label className="form-label">Full Name</label>
             <input
               type="text"
-              className="form-control "     
+              className="form-control "
               name="fullName"
-              {...formik.getFieldProps('fullName')}
+              {...formik.getFieldProps("fullName")}
               placeholder="Enter your full name"
             />
             {formik.touched.fullName && formik.errors.fullName ? (

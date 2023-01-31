@@ -15,12 +15,11 @@ import Login from "./components/Login";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import Form from "./components/Form";
 // import Signup from './components/signup';
 // import Trial from './components/trial';
 
 function App() {
-  const [mode, setMode] = useState("light");
+  const [mode, setMode] = useState("dark");
   const [alert, setAlert] = useState(null);
 
   const showAlert = (message, type) => {
@@ -58,16 +57,17 @@ function App() {
   return (
     <>
       <QueryClientProvider client={client}>
-        <Alert alertMsg={alert} />
         <Router>
-        <Navbar
-          title="textUtils"
-          aboutText="About"
-          registerText="Register"
-          validationText="Validation"
-          btnMode={mode}
-          toggleBtn={toggleMode}
-        />
+          <Navbar
+            title="textUtils"
+            aboutText="About"
+            registerText="Register"
+            validationText="Validation"
+            btnMode={mode}
+            toggleBtn={toggleMode}
+          />
+          <Alert alertMsg={alert} />
+
           <div className="container my-3">
             <Routes>
               <Route path="/about" element={<About />} />
@@ -91,11 +91,6 @@ function App() {
               />
               <Route path="/fetchAPI" element={<FetchAPI />} />
               <Route path="/login" element={<Login />} />
-            </Routes>
-          </div>
-          <div className="container">
-            <Routes>
-              <Route path="/home" element={<Form />} />
             </Routes>
           </div>
         </Router>
