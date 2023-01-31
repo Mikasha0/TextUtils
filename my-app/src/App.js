@@ -7,7 +7,7 @@ import Alert from "./components/Alert";
 import Footer from "./components/Footer";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("dark");
@@ -48,7 +48,7 @@ function App() {
   return (
     <>
       <QueryClientProvider client={client}>
-        <Router>
+        <BrowserRouter>
           <Navbar
             title="textUtils"
             aboutText="About"
@@ -57,18 +57,17 @@ function App() {
             btnMode={mode}
             toggleBtn={toggleMode}
           />
-          <Alert alertMsg={alert} />
-          <TextForm btnMsg={showAlert} btnMode={mode} />
+          {/* <TextForm btnMsg={showAlert} btnMode={mode} /> */}
           <div className="container my-3">
             <Routes>
-              <Route path="/about" element={<About />} />
               <Route
-                path="/home"
+                path="/"
                 element={<TextForm btnMsg={showAlert} btnMode={mode} />}
               />
+              <Route path="/about" element={<About />} />
             </Routes>
           </div>
-        </Router>
+        </BrowserRouter>
         <Footer btnMode={mode} />
       </QueryClientProvider>
     </>
